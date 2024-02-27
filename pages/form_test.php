@@ -23,7 +23,7 @@ if (isset($_GET['category']) && isset($_GET['customer'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Table Editor</title>
     <?php
-    require './style.php'
+    require '../style.php'
     ?>
 </head>
 
@@ -823,7 +823,7 @@ if (isset($_GET['category']) && isset($_GET['customer'])) {
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

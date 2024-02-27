@@ -1,5 +1,5 @@
 <?php
-require('./config.php');
+require('./config/config.php');
 $cusName = "SELECT CusID, CusName, CusContact, CusAddress, CusProvince, CusCountry, CusZip, CusTel, CusFax, CusEmail, CusWebsite, CusCity, Currency_Code, PATCODE, ShipMark, SideMark, PackingInst, Term_Con, CountryID, 
 CusCode, CusMainID, Rate, Credit
 FROM Tbl_Customer
@@ -30,7 +30,7 @@ $show_styletype = $connAPSO->query($styleType);
 </head>
 
 <body>
-    <form action="form_test1.php" class="custom-form" id="myForm">
+    <form action="./pages/form_test1.php" class="custom-form" id="myForm">
         <label style="font-size: 2rem;" for="customer" class="form-label">เลือกลูกค้า</label>
         <?php
         echo '<select name="customer" id="customer" class="form-select">';

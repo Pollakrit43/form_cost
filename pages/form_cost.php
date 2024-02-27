@@ -22,7 +22,7 @@ if (isset($_GET['category']) && isset($_GET['customer'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Cost</title>
-    <link rel="stylesheet" href="form_cost.css">
+    <link rel="stylesheet" href="../css/form_cost.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

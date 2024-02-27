@@ -33,13 +33,17 @@ try {
 
     $data = json_decode(file_get_contents('php://input'), true);
 
+    $sql = "SELECT MAX(Row) AS MaxRow FROM MyTable";
+    $stmt = $conn->query($sql);
+    $maxRow = $stmt->fetch(PDO::FETCH_ASSOC)['MaxRow'];
 
+    $nextRow = $maxRow + 1;
     $numColumnsExpected = 7;
 
     // Insert each row of data into the database
     foreach ($data as $row) {
         // Prepare the SQL statement
-        $sql = "INSERT INTO MyTable (Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO MyTable (Row,Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7,Column8) VALUES ($nextRow,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Prepare the parameters for the SQL query
         $stmt = $conn->prepare($sql);
