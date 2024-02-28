@@ -6,11 +6,21 @@ error_reporting(~0);
 $serverName = "192.168.1.221";
 $userName = "sa";
 $userPassword = "ua";
-$dbName = "IE";
+$dbName = "TestDB";
+
+$M = date("m");
+$Y = date("Y");
+$m = date("m");
+$d = date("d");
+$h = date('h');
+$i = date('i');
 
 
 
-// Display category and customer information received from JavaScript
+// echo $RefCode;
+
+
+
 if (isset($_GET['category']) && isset($_GET['customer'])) {
     // Get the value of the "category" and "customer" parameters
     $category = $_GET['category'];
@@ -37,13 +47,19 @@ try {
     $stmt = $conn->query($sql);
     $maxRow = $stmt->fetch(PDO::FETCH_ASSOC)['MaxRow'];
 
-    $nextRow = $maxRow + 1;
-    $numColumnsExpected = 7;
 
+    $nextRow = $maxRow + 1;
+
+    $RefCode = $Y . $m . $d . $h . $i . $nextRow;
+    // echo $RefCode;
+
+
+    // echo $RefCode;
     // Insert each row of data into the database
     foreach ($data as $row) {
         // Prepare the SQL statement
-        $sql = "INSERT INTO MyTable (Row,Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7,Column8) VALUES ($nextRow,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO MyTable (RefCode, Row, Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7,Column8) VALUES ($RefCode,$nextRow,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        // $sql = "INSERT INTO MyTable (Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // Prepare the parameters for the SQL query
         $stmt = $conn->prepare($sql);
