@@ -237,7 +237,6 @@
                     <td><input type='text' class='form-control' value="AMOUNT/USD" readonly></td>
                     <td></td>
                 </tr>
-
                 <tr>
                     <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
                     <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
@@ -358,10 +357,14 @@
 
 
     function resetForm() {
-        var inputFields = document.querySelectorAll('input[type="text"]');
+        var inputFields = document.querySelectorAll('input[type="text"], input[type="date"]');
         inputFields.forEach(function(input) {
             if (!input.hasAttribute('readonly')) {
-                input.value = '';
+                if (input.type === 'date') {
+                    input.value = ''; // Reset date input
+                } else {
+                    input.value = ''; // Reset text input
+                }
             }
         });
         location.reload();
