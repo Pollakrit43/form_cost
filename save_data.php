@@ -22,14 +22,14 @@ $i = date('i');
 
 
 if (isset($_GET['category']) && isset($_GET['customer'])) {
-    // Get the value of the "category" and "customer" parameters
+    
     $category = $_GET['category'];
     $customer = $_GET['customer'];
 
-    // Display the category and customer information
+    
     echo "ลูกค้า: " . $customer . " " . "ประเภทที่เลือก: " . $category;
 } else {
-    // Handle the case when "category" parameter is not set
+    
     echo "Category parameter not found in the URL.";
 }
 try {
@@ -51,17 +51,11 @@ try {
     $nextRow = $maxRow + 1;
 
     $RefCode = $Y . $m . $d . $h . $i . $nextRow;
-    // echo $RefCode;
 
-
-    // echo $RefCode;
-    // Insert each row of data into the database
     foreach ($data as $row) {
-        // Prepare the SQL statement
-        $sql = "INSERT INTO MyTable (RefCode, Row, Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7,Column8) VALUES ($RefCode,$nextRow,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        // $sql = "INSERT INTO MyTable (Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        $sql = "INSERT INTO MyTable (RefCode, Row, Category, Customer, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8) VALUES ($RefCode,$nextRow,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        // Prepare the parameters for the SQL query
         $stmt = $conn->prepare($sql);
         $stmt->execute($row);
         if ($stmt === false) {
@@ -69,8 +63,8 @@ try {
         }
     }
 
-    // Close the database connection
-    $conn = null; // or use $conn = null; to close the connection explicitly
+    
+    $conn = null;
 
     echo " Data saved successfully!";
 } catch (PDOException $e) {
