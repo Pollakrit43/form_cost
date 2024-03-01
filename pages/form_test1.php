@@ -29,6 +29,13 @@
         </div>
     </div>
 
+
+    <div class="position-fixed bg-white p-3" style="top: 50%; left: 0; transform: translateY(-50%);">
+        <label for="percenLose" class="mb-0" style="font-size: 1.2rem; margin-right: 2rem;">เปอร์เซ็นต์เผื่อสูญเสีย:%</label>
+        <input type="number" id="percenLose" min="1" max="100" value="1" style="padding: 0.5rem; font-size: 1rem;" class="form-control">
+    </div>
+
+
     <input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly>
     <input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly>
 
@@ -263,166 +270,257 @@
                     <td><input type='text' class='form-control'></td>
                     <td><button class='btn btn-danger' onclick="deleteRow(this)">Delete</button> <button class='btn btn-warning' onclick="insertRow(this)">Insert</button></td>
                 </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="PACKING & FINISHING" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="UNIT/PC" readonly></td>
+                    <td><input type='text' class='form-control' value="QUANTITY" readonly></td>
+                    <td><input type='text' class='form-control' value="AMOUNT/USD" readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="B) KNUCKLE POCKET"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><button class='btn btn-danger' onclick="deleteRow(this)">Delete</button> <button class='btn btn-warning' onclick="insertRow(this)">Insert</button></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="B) KNUCKLE POCKET"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><button class='btn btn-danger' onclick="deleteRow(this)">Delete</button> <button class='btn btn-warning' onclick="insertRow(this)">Insert</button></td>
+                </tr>
+                <tr class="bg-warning">
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="TOTAL MATERIAL COST" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="Total" readonly id="Total"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="CUT & MAKE COST" readonly></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="cm" type='text' class='form-control'></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="OVERHEAD" readonly></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="overhead" type='text' class='form-control'></td>
+                    <td></td>
+                </tr>
+                <tr class="bg-warning">
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input id="TotalCMOverhead" type='text' class='form-control' value="0" readonly></td>
+                    <td></td>
+                </tr>
+                <tr class="bg-warning">
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="TOTAL COST" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input id="TotalCost" type='text' class='form-control' value="0" readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="DOCUMENTATION COST" readonly></td>
+                    <td><input id="documentation_percen" type='text' class='form-control' oninput="calculatePercenValue('documentation')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="documentation_value" type='text' class='form-control' oninput="calculatePercenValue('documentation')"></td>
+                    <td><input id="documentation_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="GARMENT TEST" readonly></td>
+                    <td><input id="garment_percen" type='text' class='form-control' oninput="calculatePercenValue('garment')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="garment_value" type='text' class='form-control' oninput="calculatePercenValue('garment')"></td>
+                    <td><input id="garment_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="FACTORY AUDIT" readonly></td>
+                    <td><input id="factory_percen" type='text' class='form-control' oninput="calculatePercenValue('factory')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="factory_value" type='text' class='form-control' oninput="calculatePercenValue('factory')"></td>
+                    <td><input id="factory_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="GT NEXUS" readonly></td>
+                    <td><input id="gt_percen" type='text' class='form-control' oninput="calculatePercenValue('gt')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="gt_value" type='text' class='form-control' oninput="calculatePercenValue('gt')"></td>
+                    <td><input id="gt_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="PROFIT" readonly></td>
+                    <td><input id="profit_percen" type='text' class='form-control' oninput="calculatePercenValue('profit')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="profit_value" type='text' class='form-control' oninput="calculatePercenValue('profit')"></td>
+                    <td><input id="profit_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="MISCELLANEOUS" readonly></td>
+                    <td><input id="miscellaneous_percen" type='text' class='form-control' oninput="calculatePercenValue('miscellaneous')"></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input type='text' class='form-control'></td>
+                    <td><input id="miscellaneous_value" type='text' class='form-control' oninput="calculatePercenValue('miscellaneous')"></td>
+                    <td><input id="miscellaneous_total" type='text' class='form-control' readonly></td>
+                    <td></td>
+                </tr>
+                <tr class="bg-warning">
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="TOTAL COST" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input id="TotalCostFinal" type='text' class='form-control' value="0" readonly></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type='hidden' name='category' value="<?php echo isset($category) ? htmlspecialchars($category) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='hidden' name='customer' value="<?php echo isset($customer) ? htmlspecialchars($customer) : ''; ?>" readonly class="form-control"></td>
+                    <td><input type='text' class='form-control' value="TOTAL FOB PRICE" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input type='text' class='form-control' value="" readonly></td>
+                    <td><input id="TotalCostFinal" type='text' class='form-control' value="0" readonly></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary mr-2" onclick="addRow()">Add Row</button>
         <button class="btn btn-success mr-2" onclick="saveData()">Save Data</button>
         <button class="btn btn-danger" onclick="resetForm()">Reset</button>
     </div>
-
-
-
-
 </body>
 
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="../js/form_test1.js"></script>
+
+
 <script>
-    function addRow() {
-        var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
-        var category = document.getElementsByName('category')[0].value;
-        var customer = document.getElementsByName('customer')[0].value;
-        for (var i = 0; i < 10; i++) {
-            var cell = newRow.insertCell(i);
-            if (i === 0) {
-                cell.innerHTML = "<input type='text' value='" + category + "' readonly class='form-control'>";
-            } else if (i === 1) {
-                cell.innerHTML = "<input type='text' value='" + customer + "' readonly class='form-control'>";
-            } else {
-                cell.innerHTML = "<input type='text' class='form-control'>";
-            }
-        }
-        var actionCell = newRow.insertCell(10);
-        actionCell.innerHTML = "<button class='btn btn-danger' onclick='deleteRow(this)'>Delete</button> <button class='btn btn-warning' onclick='insertRow(this)'>Insert</button>";
-    }
-
-    function deleteRow(btn) {
-        var row = btn.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-    }
-
-    function insertRow(btn) {
-        var row = btn.parentNode.parentNode;
-        var newRow = row.parentNode.insertRow(row.rowIndex + 0);
-        var category = document.getElementsByName('category')[0].value;
-        var customer = document.getElementsByName('customer')[0].value;
-        for (var i = 0; i < 10; i++) {
-            var cell = newRow.insertCell(i);
-            if (i === 0) {
-                cell.innerHTML = "<input type='hidden' value='" + category + "' readonly class='form-control'>";
-            } else if (i === 1) {
-                cell.innerHTML = "<input type='hidden' value='" + customer + "' readonly class='form-control'>";
-            } else {
-                cell.innerHTML = "<input type='text' class='form-control'>";
-            }
-        }
-        var actionCell = newRow.insertCell(10);
-        actionCell.innerHTML = "<button class='btn btn-danger' onclick='deleteRow(this)'>Delete</button> <button class='btn btn-warning' onclick='insertRow(this)'>Insert</button>";
-    }
-
-    function saveData() {
-        var data = [];
-        var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];
-        for (var i = 0; i < table.rows.length; i++) {
-            var row = table.rows[i];
-            var rowData = [];
-            for (var j = 0; j < row.cells.length - 1; j++) {
-                var cell = row.cells[j];
-                rowData.push(cell.querySelector('input').value);
-            }
-            data.push(rowData);
-        }
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "../save_data.php?category=<?php echo urlencode($category); ?>&customer=<?php echo urlencode($customer); ?>", true);
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Data saved successfully!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        resetForm(); // Call resetForm function after user clicks "Ok"
-                    }
-                });
-            }
-        };
-        xhr.send(JSON.stringify(data));
-    }
-
-
-
-    function resetForm() {
-        var inputFields = document.querySelectorAll('input[type="text"], input[type="date"]');
-        inputFields.forEach(function(input) {
-            if (!input.hasAttribute('readonly')) {
-                if (input.type === 'date') {
-                    input.value = ''; // Reset date input
-                } else {
-                    input.value = ''; // Reset text input
-                }
-            }
-        });
-        location.reload();
-    }
-
-    function calculateAndDisplay() {
-        var table = document.getElementById("data-table").getElementsByTagName('tbody')[0];
-        for (var i = 0; i < table.rows.length; i++) {
-            var row = table.rows[i];
-            var cell6 = row.cells[7].querySelector('input');
-            var cell7 = row.cells[8].querySelector('input');
-            var cell8 = row.cells[9].querySelector('input');
-            if (cell6 && cell7 && cell8) {
-                var value6 = parseFloat(cell6.value);
-                var value7 = parseFloat(cell7.value);
-                if (!isNaN(value6) && !isNaN(value7)) {
-                    cell8.value = (value6 * value7).toFixed(4);
-                } else {
-                    cell8.value = cell8.value;
-                }
-            }
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        calculateAndDisplay();
-        var inputs = document.querySelectorAll('#data-table tbody input[type="text"]');
-        inputs.forEach(function(input) {
-            input.addEventListener('input', calculateAndDisplay);
-        });
-    });
-
-
-    function previewImage(event) {
-        var file = event.target.files[0];
-        var output = document.getElementById('preview');
-        var imageBinaryInput = document.getElementById('imageBinary');
-
-        if (file) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var binaryData = e.target.result;
-                imageBinaryInput.value = binaryData;
-
-                // Display the image
-                var img = new Image();
-                img.src = binaryData;
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '100%';
-                output.innerHTML = '';
-                output.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        } else {
-            imageBinaryInput.value = "";
-            output.innerHTML = "";
-        }
-    }
+    // var total = document.querySelector("#Total"); 
+    // console.log(total.value)
 </script>
 
 </html>
