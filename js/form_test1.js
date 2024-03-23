@@ -87,7 +87,7 @@ function saveData() {
         confirmButtonText: "Ok",
       }).then((result) => {
         if (result.isConfirmed) {
-          resetForm(); // Call resetForm function after user clicks "Ok"
+          resetForm();
         }
       });
     }
@@ -96,19 +96,20 @@ function saveData() {
 }
 
 function resetForm() {
-  var inputFields = document.querySelectorAll(
-    'input[type="text"], input[type="date"]'
-  );
-  inputFields.forEach(function (input) {
-    if (!input.hasAttribute("readonly")) {
-      if (input.type === "date") {
-        input.value = ""; // Reset date input
-      } else {
-        input.value = ""; // Reset text input
-      }
-    }
-  });
-  location.reload();
+  // var inputFields = document.querySelectorAll(
+  //   'input[type="text"], input[type="date"]'
+  // );
+  // inputFields.forEach(function (input) {
+  //   if (!input.hasAttribute("readonly")) {
+  //     if (input.type === "date") {
+  //       input.value = "";
+  //     } else {
+  //       input.value = "";
+  //     }
+  //   }
+  // });
+  // location.reload();
+  window.location.href = window.location.href;
 }
 
 function calculateAndDisplay() {
@@ -120,8 +121,8 @@ function calculateAndDisplay() {
   var TotalCost = 0;
   var percentLoss =
     parseFloat(document.getElementById("percenLose").value) || 1;
-  var cm = parseFloat(document.querySelector("#cm").value);
-  var overhead = parseFloat(document.querySelector("#overhead").value);
+  var cm = parseFloat(document.querySelector("#cm").value) || 0;
+  var overhead = parseFloat(document.querySelector("#overhead").value) || 0;
 
   for (var i = 0; i < table.rows.length; i++) {
     var row = table.rows[i];
@@ -148,26 +149,92 @@ function calculateAndDisplay() {
   document.querySelector("#TotalCMOverhead").value = isNaN(TotalCMOverhead)
     ? "0"
     : TotalCMOverhead.toFixed(4);
-
   document.querySelector("#TotalCost").value = isNaN(TotalCost)
     ? "0"
     : TotalCost.toFixed(4);
 }
 
-function calculatePercenValue(type) {
-  var percenInput = document.getElementById(type + "_percen").value;
-  var valueInput = document.getElementById(type + "_value").value;
-  var totalInput = document.getElementById(type + "_total");
+function calculatePercenValue() {
+  var totalCosttotal = 0;
+  var totalCostFinal = 0;
+  var inputDocumentation_percen =
+    parseFloat(document.getElementById("documentation_percen").value) || 0;
+  var inputDocumentation_value =
+    parseFloat(document.getElementById("documentation_value").value) || 0;
+  var documentation_total =
+    inputDocumentation_percen !== 0
+      ? (inputDocumentation_percen * inputDocumentation_value) / 100
+      : inputDocumentation_value;
+  document.getElementById("documentation_total").value =
+    documentation_total.toFixed(4);
 
-  var percen = parseFloat(percenInput);
-  var value = parseFloat(valueInput);
+  var inputGarment_percen =
+    parseFloat(document.getElementById("garment_percen").value) || 0;
+  var inputGarment_value =
+    parseFloat(document.getElementById("garment_value").value) || 0;
+  var garment_total =
+    inputGarment_percen !== 0
+      ? (inputGarment_percen * inputGarment_value) / 100
+      : inputGarment_value;
+  document.getElementById("garment_total").value = garment_total.toFixed(4);
 
-  if (!isNaN(percen)) {
-    var calculatedValue = (value * percen) / 100;
-    totalInput.value = calculatedValue.toFixed(4);
-  } else {
-    totalInput.value = value.toFixed(4);
-  }
+  var inputFactory_percen =
+    parseFloat(document.getElementById("factory_percen").value) || 0;
+  var inputFactory_value =
+    parseFloat(document.getElementById("factory_value").value) || 0;
+  var factory_total =
+    inputFactory_percen !== 0
+      ? (inputFactory_percen * inputFactory_value) / 100
+      : inputFactory_value;
+  document.getElementById("factory_total").value = factory_total.toFixed(4);
+
+  var inputGt_percen =
+    parseFloat(document.getElementById("gt_percen").value) || 0;
+  var inputGt_value =
+    parseFloat(document.getElementById("gt_value").value) || 0;
+  var gt_total =
+    inputGt_percen !== 0
+      ? (inputGt_percen * inputGt_value) / 100
+      : inputGt_value;
+  document.getElementById("gt_total").value = gt_total.toFixed(4);
+
+  var inputProfit_percen =
+    parseFloat(document.getElementById("profit_percen").value) || 0;
+  var inputProfit_value =
+    parseFloat(document.getElementById("profit_value").value) || 0;
+  var profit_total =
+    inputProfit_percen !== 0
+      ? (inputProfit_percen * inputProfit_value) / 100
+      : inputProfit_value;
+  document.getElementById("profit_total").value = profit_total.toFixed(4);
+
+  var inputMiscellaneous_percen =
+    parseFloat(document.getElementById("miscellaneous_percen").value) || 0;
+  var inputMiscellaneous_value =
+    parseFloat(document.getElementById("miscellaneous_value").value) || 0;
+  var miscellaneous_total =
+    inputMiscellaneous_percen !== 0
+      ? (inputMiscellaneous_percen * inputMiscellaneous_value) / 100
+      : inputMiscellaneous_value;
+  document.getElementById("miscellaneous_total").value =
+    miscellaneous_total.toFixed(4);
+
+  totalCosttotal =
+    documentation_total +
+    garment_total +
+    gt_total +
+    factory_total +
+    profit_total +
+    miscellaneous_total;
+
+  document.getElementById("TotalCostTotal").value = totalCosttotal.toFixed(4);
+
+  var totalCostInput = parseFloat(document.getElementById("TotalCost").value);
+  var totalCostTotalInput = parseFloat(
+    document.getElementById("TotalCostTotal").value
+  );
+  var totalCostFinal = totalCostInput + totalCostTotalInput;
+  document.getElementById("TotalCostFinal").value = totalCostFinal.toFixed(4);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -186,6 +253,18 @@ document.addEventListener("DOMContentLoaded", function () {
   inputs.forEach(function (input) {
     input.addEventListener("input", calculatePercenValue);
   });
+
+  var selectButton = document.querySelector(
+    "#exampleModal .modal-footer .btn-primary"
+  );
+  selectButton.addEventListener("click", function () {
+    var selectedValue = document.querySelector(
+      "#exampleModal #quantityRange"
+    ).value;
+    var overheadInput = document.querySelector("tr input#overhead");
+    overheadInput.value = selectedValue;
+    calculateAndDisplay();
+  });
 });
 
 function previewImage(event) {
@@ -199,8 +278,10 @@ function previewImage(event) {
       var binaryData = e.target.result;
       imageBinaryInput.value = binaryData;
 
+      // console.log(e.target.result)
+
       var img = new Image();
-      img.src = binaryData;
+      img.src =  imageBinaryInput.value;
       img.style.maxWidth = "100%";
       img.style.maxHeight = "100%";
       output.innerHTML = "";
