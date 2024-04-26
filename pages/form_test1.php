@@ -39,7 +39,8 @@
 
     <div class="container-fluid mb-2">
         <button id="export-btn" class="btn btn-primary">Export to Excel</button>
-
+        <input type="file" id="import-file" accept=".xlsx, .xls" style="display: none;">
+        <button id="import-btn" class="btn btn-primary">Import from Excel</button>
     </div>
 
 
@@ -666,7 +667,7 @@
             var nonBlankCell = false;
 
             // Iterate through row cells
-            for (var j = 2; j < row.cells.length; j++) {
+            for (var j = 0; j < row.cells.length; j++) {
                 var cellValue = "";
                 var cellElement = row.cells[j].querySelector('input, select, textarea');
 
@@ -703,6 +704,45 @@
 
         // Save workbook to Excel file with dynamic name
         XLSX.writeFile(wb, fileName);
+    });
+
+
+    document.getElementById('import-btn').addEventListener('click', function() {
+        // Trigger file input click
+        document.getElementById('import-file').click();
+    });
+
+    document.getElementById('import-file').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, {
+                type: 'array'
+            });
+            var firstSheetName = workbook.SheetNames[0];
+            var worksheet = workbook.Sheets[firstSheetName];
+            var tableData = XLSX.utils.sheet_to_json(worksheet, {
+                header: 1
+            });
+
+            // Populate your table with imported data
+            var table = document.getElementById('data-table');
+            table.innerHTML = ""; // Clear previous data
+
+            tableData.forEach(function(row) {
+                var newRow = table.insertRow();
+                row.forEach(function(cellData) {
+                    var newCell = newRow.insertCell();
+                    newCell.textContent = cellData;
+                });
+            });
+
+            alert("Import successful!");
+        };
+
+        reader.readAsArrayBuffer(file);
     });
 </script>
 
